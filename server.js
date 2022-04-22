@@ -1,16 +1,18 @@
 const express = require("express")
 const unirest = require("unirest");
 
+express.json()
+
 const app = express()
 
 
 
 
 
-app.get("/", (req, res) => {
+app.get("/:place", (req, res) => {
 
     unirest.get("https://community-open-weather-map.p.rapidapi.com/weather").query({
-	"q": "London,uk",
+	"q": req.params.place,
 	"lat": "0",
 	"lon": "0",
 	"callback": "test",
