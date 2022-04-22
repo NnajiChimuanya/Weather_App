@@ -1,9 +1,16 @@
+const express = require("express")
 const unirest = require("unirest");
 
-const req = unirest("GET", "https://community-open-weather-map.p.rapidapi.com/weather");
+const app = express()
 
-req.query({
-	"q": "dallas, texas",
+
+
+
+
+app.get("/", (req, res) => {
+
+    unirest.get("https://community-open-weather-map.p.rapidapi.com/weather").query({
+	"q": "London,uk",
 	"lat": "0",
 	"lon": "0",
 	"callback": "test",
@@ -11,16 +18,19 @@ req.query({
 	"lang": "null",
 	"units": "imperial",
 	"mode": "xml"
-});
-
-req.headers({
+}).headers({
 	"X-RapidAPI-Host": "community-open-weather-map.p.rapidapi.com",
 	"X-RapidAPI-Key": "97592c4b5cmsh55ce5da302b5987p1675abjsnde3bd98cedf3",
 	"useQueryString": true
-});
-
-req.end(function (res) {
+}).end(function (result) {
 	if (res.error) throw new Error(res.error);
-
-	console.log(res.body);
+    res.send(result.body)
+	console.log(result.body);
 });
+
+  
+})
+
+
+
+app.listen(3000, () => console.log("Listening at port"))
