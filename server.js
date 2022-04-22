@@ -1,18 +1,26 @@
 const express = require("express")
 const unirest = require("unirest");
+const bodyParser = require("body-parser")
+
+const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 express.json()
 
 const app = express()
+app.set("view engine", "ejs")
 
 
+app.get("/", (req, res) => res.render("home"))
+
+app.get("/place", (req, res) => {
+	res.render("place")
+})
 
 
-
-app.get("/:place", (req, res) => {
+app.get("/current", urlencodedParser, (req, res) => {
 
     unirest.get("https://community-open-weather-map.p.rapidapi.com/weather").query({
-	"q": req.params.place,
+	"q": req.body.place,
 	"lat": "0",
 	"lon": "0",
 	"callback": "test",
