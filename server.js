@@ -34,6 +34,7 @@ app.post("/current", urlencodedParser, (req, res) => {
 	"X-RapidAPI-Key": "97592c4b5cmsh55ce5da302b5987p1675abjsnde3bd98cedf3",
 	"useQueryString": true
 }).end(function (result) {
+
 	if (res.error) throw new Error(res.error);
 	
 	

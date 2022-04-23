@@ -1,0 +1,25 @@
+
+
+
+#map {
+    height: 400px;
+    width: 70%;
+  
+}
+
+
+.d-flex {
+  padding: 2px;
+}
+
+a {
+  margin-left: calc(10px 60%);
+  width: 60%
+}
+
+.back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
