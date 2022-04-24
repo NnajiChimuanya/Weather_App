@@ -11,7 +11,12 @@ app.set("view engine", "ejs")
 app.use(express.static(__dirname + '/public'));
 
 
-app.get("/", (req, res) => res.render("home"))
+app.get("/", (req, res) => {
+	if(res.status == 302) {
+		res.render("home", {data : {"error" : "err"}})
+	}
+	res.render("home")
+})
 
 app.get("/place", (req, res) => {
 	res.render("place")
@@ -35,11 +40,16 @@ app.post("/current", urlencodedParser, (req, res) => {
 	"useQueryString": true
 }).end(function (result) {
 
-	if (res.error) throw new Error(res.error);
+	if(result.body.cod == 200) {
+		if (res.error) throw new Error(res.error);
 	
 	
 	res.render("place", {place : result.body})
 	console.log(result.body);
+	} else {
+		res.redirect(302,"/")
+		
+	}
 });
 
   
