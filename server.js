@@ -3,7 +3,7 @@ const unirest = require("unirest");
 const bodyParser = require("body-parser")
 const cool = require("cool-ascii-faces")
 
-port = port.env.PORT || 5000
+const port = port.env.PORT || 5000
 
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
