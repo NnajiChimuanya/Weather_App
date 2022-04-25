@@ -3,6 +3,8 @@ const unirest = require("unirest");
 const bodyParser = require("body-parser")
 const cool = require("cool-ascii-faces")
 
+port = port.env.PORT || 5000
+
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 express.json()
@@ -59,4 +61,4 @@ app.post("/current", urlencodedParser, (req, res) => {
 
 
 
-app.listen(3000, () => console.log("Listening at port"))
+app.listen(port, () => console.log("Listening at port"))
