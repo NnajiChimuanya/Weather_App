@@ -1,12 +1,14 @@
 const express = require("express")
 const unirest = require("unirest");
 const bodyParser = require("body-parser")
+const cool = require("cool-ascii-faces")
 
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 express.json()
 
 const app = express()
+app.get('/cool', (req, res) => res.send(cool()))
 app.set("view engine", "ejs")
 app.use(express.static(__dirname + '/public'));
 
