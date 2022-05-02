@@ -24,8 +24,28 @@
 
 input {
   height: 50px;
-  width: 400px;
+  width: 350px;
   max-width: 600px;
+  border-radius: 15px;
+  border: none;
+  padding: 10px;
+  background: lightslategray;
+  color: aliceblue;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+input:focus {
+  outline: none;
+  border: none;
+}
+
+.btn {
+border-radius: 15px;
+}
+
+.btn:active {
+  outline: none;
+  border: none;
 }
 
 
