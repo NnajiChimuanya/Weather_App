@@ -23,14 +23,15 @@
 }
 
 input {
+  font-family: 'Radio Canada', sans-serif;
   height: 50px;
   width: 350px;
   max-width: 600px;
   border-radius: 15px;
   border: none;
   padding: 10px;
-  background: lightslategray;
-  color: aliceblue;
+  background: white;
+  color: black;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
