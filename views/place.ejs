@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Radio+Canada&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.css" rel="stylesheet"/>
@@ -11,48 +14,40 @@
     <title>Weather App</title>
 </head>
 <body>
-    
-    <section class="vh-100" style="background-color: #33495f;">
-        
-        <div class="container py-5 h-100">
-      
-          <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-md-8 col-lg-6 col-xl-4">
-      
-              <div class="card" style="color: #4B515D; border-radius: 35px;">
-                <div class="card-body p-4">
-      
-                  <div class="d-flex">
-                    <h6 class="flex-grow-1"><%= place.name %>, <%= place.sys.country %></h6>
-                    <h6 class="flex-grow-8"><%= new Date().toUTCString() %></h6>
-                  </div>
-      
-                  <div class="d-flex flex-column text-center mt-5 mb-4">
-                    <h6 class="display-4 mb-0 font-weight-bold" style="color: #1C2331;"> <%= ((place.main.temp-32) / 1.8).toFixed(0) %>°C </h6>
-                    <span class="small" style="color: #868B94"> <%= place.weather[0].main %></span>
-                    <span class="small" style="color: #868B94"> <%= place.weather[0].description %></span>
-                  </div>
-      
-                  <div class="d-flex align-items-center">
-                    <div class="flex-grow-1" style="font-size: 1rem;">
-                      <div><i class="fas fa-wind fa-fw" style="color: #868B94;"></i> <span class="ms-1"> <%= place.wind.speed %> Km/h </span></div>
-                      <div><i class="fas fa-tint fa-<%= place.weather[0].icon %>" style="color: #868B94;"></i> <span class="ms-1"> 84% </span></div>
-                      <div><i class="fas fa-sun fa-fw" style="color: #868B94;"></i> <span class="ms-1"> 0.2h </span></div>
-                    </div>
-                    
-                    <div id="map"></div>
-                    
-                  </div>
-      
-                </div>
-                
-              </div>
-              
-            </div>
-          </div>
-      
+ 
+  <div>
+    <video autoplay muted loop id="myVideo">
+      <source src="videos/clouds.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <div class="container">
+    <div class="card mb-3" style="max-width: 540px;">
+      <div class="row g-0">
+        <div class="">
+          <div id="map"></div>
         </div>
-      </section>
+        
+        <div class="">
+          <div class="card-body">
+            <h5 class="card-title"> <%= place.name %>, <%= place.sys.country %></h5>
+            <p class="card-text"><small class="text-muted"><%= new Date().toUTCString() %></p>
+            <h3 class="card-title"> <%= ((place.main.temp-32) / 1.8).toFixed(0) %>°C </h5>
+            <h5 class="card-title"> Feels like :  <%= ((place.main.feels_like-32) / 1.8).toFixed(0) %>°C </h5>
+            <h5 class="card-title"> Minimum Temp :  <%= ((place.main.temp_min-32) / 1.8).toFixed(0) %>°C </h5>
+            <h5 class="card-title"> Maximum Temp :  <%= ((place.main.temp_max-32) / 1.8).toFixed(0) %>°C </h5>
+            <h5 class="card-title"> Pressure :  <%= place.main.pressure %>hPa </h5>
+            <h5 class="card-title"> Humidity :  <%= place.main.humidity %>% </h5>
+
+             
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    
 
       
 
