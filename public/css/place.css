@@ -19,11 +19,14 @@ h5 {
   width: 400px;
 }
 
-.container {
+.container-fluid {
   display: flex;
   height: 100vh;
   justify-content: center;
   align-items: center;
+  background: url("https://images.unsplash.com/photo-1513002749550-c59d786b8e6c?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 
